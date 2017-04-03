@@ -1,3 +1,15 @@
+# promises
+
+### Day 1 & 2
+
+- [ ] Complete the [Promises Course][promises-course] on Udacity
+
+- [ ] Read [this](https://coligo.io/javascript-promises-plain-simple/) blog post
+
+- [ ] Read [this](https://scotch.io/tutorials/javascript-promises-for-dummies) blog post
+​
+### Day 3 & 4
+
 # Promises Exercises
 
 Base repository for the [promises-applied](https://github.com/GuildCrafts/web-development-js/issues/186) goal.
@@ -5,3 +17,114 @@ Base repository for the [promises-applied](https://github.com/GuildCrafts/web-de
 ## Description
 
 Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-promise-exercises`. Look at the `README.md` file in each folder for instructions.
+
+- [ ] Exercises 1-13 in the [promise-it-wont-hurt-solutions][promise-it-wont-hurt-solutions] are complete and written to the appropriate file:
+
+- [ ] `src/01-warmup.js`
+
+- [ ] `src/02-fullfill-a-promise.js`
+
+- [ ] `src/03-reject-a-promise.js`
+
+- [ ] `src/04-to-reject-or-not-to-reject.js`
+
+- [ ] `src/05-always-asynchronous.js`
+
+- [ ] `src/06-shortcuts.js`
+
+- [ ] `src/07-promise-after-promise.js`
+
+- [ ] `src/08-values-and-promises.js`
+
+- [ ] `src/09-throw-an-error.js`
+
+- [ ] `src/10-an-important-file.js`
+
+- [ ] `src/11-multiple-promises.js`
+
+- [ ] `src/12-fetch-json.js`
+
+- [ ] `src/13-do-some-work.js`
+​
+### Day 5
+
+- [ ] Look at the [documentation](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example) of the `pg-promise` repository
+
+- [ ] Exercises 1-7 in the [pg promise exercises][pg-promise-exercises] are complete
+
+- [ ] Exercise 1
+
+- [ ] Exercise 2
+
+- [ ] Exercise 3
+
+- [ ] Exercise 4
+
+- [ ] Exercise 5
+
+- [ ] Exercise 6
+
+- [ ] Exercise 7
+
+### Stretch
+
+- [ ] Read Google's [Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to Promises
+​
+## Quality Rubric
+
+**Well formatted code**
+
+- Code uses a linter, which can be invoked with a command (e.g. `npm run lint`). [50 points]
+
+- Running the linter on all source code files generates no linting errors. [50 points]
+
+**Proper dependency management**
+
+- There is a command to install dependencies (e.g. `npm install`) and it is specified in the installation and setup instructions of the README. [50 points]
+
+**Good project management**
+
+- Commit messages are concise and descriptive. [25 points]
+
+- All features are added via pull requests. [25 points]
+
+- Every pull request has a description summarizing the changes made. [25 points]
+
+- Every pull request has been reviewed by at least one other person. [25 points]
+
+## Resources
+
+- https://developers.google.com/web/fundamentals/getting-started/primers/promises
+
+- https://coligo.io/javascript-promises-plain-simple/
+
+- https://scotch.io/tutorials/javascript-promises-for-dummies
+
+- https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html
+
+- https://blog.domenic.me/youre-missing-the-point-of-promises/
+
+- https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example
+
+[promise-it-wont-hurt-solutions]: https://github.com/GuildCrafts/promises-exercises/tree/master/promise-it-wont-hurt-solutions
+
+[promises-course]: https://www.udacity.com/course/javascript-promises--ud898
+
+[pg-promise-exercises]: https://github.com/GuildCrafts/promises-exercises/tree/master/pg-promise-exercises
+
+[promises-exercises]: https://github.com/GuildCrafts/promises-exercises
+107
+​
+@aaronev
+Commit changes
+
+Update 
+
+Add an optional extended description…
+  Commit directly to the master branch.
+  Create a new branch for this commit and start a pull request. Learn more about pull requests.
+Commit changes  Cancel
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
+
+
