@@ -37,11 +37,11 @@ let findBookAuthors = db.any(
     assert.deepEqual(authors[0].first_name, 'John')
     assert.deepEqual(authors[12].last_name, 'Christiansen')
   }).catch(error => {
-    console.log('Something happened, the data is just...like...in space or something', error);
+    console.log('The data is just...like...in space...or something', error);
   });
 
 let authorIdWithTwoBooks = db.any(
-  'select author_id from books group by author_id having count(author_id) = 2'
+  'select author_id from books group by author_id having count(author_id) >= 2'
   )
   authroIdWithTwoBooks.then(books => {
     assert.deepEqual(books.length, 2)
@@ -51,29 +51,16 @@ let authorIdWithTwoBooks = db.any(
     console.log('The asserts did not work', error);
   });
 
-/* -----------------------------------------
-   Exercise 6
-   -----------------------------------------
-
-   Implement the function `bookTitlesWithMultipleEditions` which returns the
-   `title` of books which have more than 2 editions. (HINT: you have to use a join)
-
-   @function: `bookTitlesWithMultipleEditions`
-   @input params: None
-   @output: [{title}]
-
-   In this exercise you will ALSO have to write the assertions. For inspiration,
-   look at the assertions in Exercises 1 - 3.
-
-   Expected Result:
-     [{title: 'The Shining'},
-      {title: 'The Cat in the Hat'},
-      {title: 'Dune'}
-      {title: '2001: A Space Odyssey'}
-      {title: 'The Tell-Tale Heart'}]
-
-*/
-let bookTitlesWithMultipleEditions; // IMPLEMENT THIS FUNCTION
+let bookTitlesWithMultipleEditions = db.any (
+  'select title from editions join books on editions.book_id = books.id group by title having count(title) >= 2'
+)
+  bookTitlesWithMultipleEditions.then(editions => {
+    assert.deepEqual(editions.length, 5)
+    assert.deepEqual(editions[0].title, 'The Shining')
+    assert.deepEqual(editions[4].title, 'The Tell-Tale Heart')
+  }).catch(error => {
+    console.log('The asserts did not work', error);
+  });
 
 /* --------End of Exercise 6---------------- */
 
