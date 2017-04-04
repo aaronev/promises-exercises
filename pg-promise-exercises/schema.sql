@@ -4,8 +4,8 @@
 --
 -- Name: books Type: TABLE Owner: manager
 --
-
-CREATE TABLE "books" (
+DROP TABLE IF EXISTS books;
+CREATE TABLE books(
         "id" integer NOT NULL,
         "title" text NOT NULL,
         "author_id" integer,

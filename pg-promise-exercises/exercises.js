@@ -1,46 +1,13 @@
-const pg = require('pg-promise')()
-const assert = require('assert')
-
-const postgresConfig = {
-  host: 'localhost',
-  port: 5432,
-  database: 'pg-promise-exercises',
-  user: '<change-this-to-your-username>', // replace this with your username
-  password: '' //  replace this if you have set a password for your username (this is unlikely)
-};
-
-
-const db = pg(postgresConfig);
-
-/* -----------------------------------------
-   Exercise 1
-   -----------------------------------------
-
-   This is an example function that finds all the books from the `books` table
-   @function: `allBooks`
-   @input params: None
-   @output: [{id, title, author_id, subject_id}]
-
-   The assertion fails, and you have to make it pass.
-
-*/
-
-
+const pgp = require('pg-promise')();
+const connectionString = 'postgres://localhost:5432/pg-promise-exercises';
+const db = pgp(connectionString);
 
 const allBooks = db.any('select * from books')
-/* This is calling the `then` function on the `allBooks` promise, and checks if
-   we get back 15 rows. This assertion will fail. Make it PASS!*/
-allBooks.then(books => {
-  assert.deepEqual(books.length, 20)
+  .then(books => {
+  assert.deepEqual(books.length, 15)
 }).catch(error => {
-  console.log('Dang, my assertion failed.', error);
+  console.log('Dang, my assertion failed.');
 });
-
-/* --------End of Exercise 1---------------- */
-
-
-
-
 
 /* -----------------------------------------
            Exercise 2
@@ -119,7 +86,7 @@ findAuthorsOrderedByLastName.then(authors => {
    {first_name: 'Stephen', last_name: 'King', title: 'The Shining'}
    {first_name: 'Frank', last_name: 'Herbert', title: 'Dune'}
    {first_name: 'Burne', last_name: 'Hogarth', title: 'Dynamic Anatomy'}
-   {first_name: 'Margaret Wise', last_name: 'Brown', title: 'Goodnight Moon'}
+   {first_name: 'Margaret Wise', last_name: 'Brown', title: 'Goodnight moreon'}
    {first_name: 'Edgar Allen', last_name: 'Poe', title: 'The Tell-Tale Heart'}
    {first_name: 'Mark', last_name: 'Lutz', title: 'Learning Python'}
    {first_name: 'Mark', last_name: 'Lutz', title: 'Programming Python'}

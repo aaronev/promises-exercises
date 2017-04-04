@@ -1,20 +1,18 @@
-# promises
+# Promises
 
 ### Day 1 & 2
 
-- [ ] Complete the [Promises Course][promises-course] on Udacity
+- [x] Complete the [Promises Course][promises-course] on Udacity
 
-- [ ] Read [this](https://coligo.io/javascript-promises-plain-simple/) blog post
+- [x] Read [this](https://coligo.io/javascript-promises-plain-simple/) blog post
 
-- [ ] Read [this](https://scotch.io/tutorials/javascript-promises-for-dummies) blog post
+- [x] Read [this](https://scotch.io/tutorials/javascript-promises-for-dummies) blog post
 ​
 ### Day 3 & 4
 
-# Promises Exercises
+## Exercises Description
 
 Base repository for the [promises-applied](https://github.com/GuildCrafts/web-development-js/issues/186) goal.
-
-## Description
 
 Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-promise-exercises`. Look at the `README.md` file in each folder for instructions.
 
@@ -34,7 +32,7 @@ Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-prom
 
 - [ ] `src/07-promise-after-promise.js`
 
-- [ ] `src/08-values-and-promises.js`
+- [ ] `src/08-values-and-promises.js`	
 
 - [ ] `src/09-throw-an-error.js`
 
