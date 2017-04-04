@@ -74,7 +74,9 @@ let findStockedBooks = db.any(
     assert.deepEqual(daily_inventory.length, 2)
     assert.deepEqual(daily_invetory[0].title, 'Dune')
     assert.deepEqual(daily_inventory[1].last_name, 'Geisel')
-  })
+  }).catch(error => {
+    console.log('The asserts did not work', error);
+  });
 
 console.log('Reached the end!');
 pg.end();

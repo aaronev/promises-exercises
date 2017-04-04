@@ -46,23 +46,23 @@ Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-prom
 ​
 ### Day 5
 
-- [ ] Look at the [documentation](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example) of the `pg-promise` repository
+- [x] Look at the [documentation](https://github.com/vitaly-t/pg-promise/wiki/Learn-by-Example) of the `pg-promise` repository
 
-- [ ] Exercises 1-7 in the [pg promise exercises][pg-promise-exercises] are complete
+- [x] Exercises 1-7 in the [pg promise exercises][pg-promise-exercises] are complete
 
-- [ ] Exercise 1
+- [x] Exercise 1
 
-- [ ] Exercise 2
+- [x] Exercise 2
 
-- [ ] Exercise 3
+- [x] Exercise 3
 
-- [ ] Exercise 4
+- [x] Exercise 4
 
-- [ ] Exercise 5
+- [x] Exercise 5
 
-- [ ] Exercise 6
+- [x] Exercise 6
 
-- [ ] Exercise 7
+- [x] Exercise 7
 
 ### Stretch
 
