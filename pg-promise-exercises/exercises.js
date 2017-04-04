@@ -2,6 +2,7 @@ const pgp = require('pg-promise')();
 const connectionString = 'postgres://localhost:5432/pg-promise-exercises';
 const db = pgp(connectionString);
 
+
 const allBooks = db.any('select * from books')
   allbooks.then(books => {
   assert.deepEqual(books.length, 15)
@@ -9,41 +10,23 @@ const allBooks = db.any('select * from books')
   console.log('Dang, my assertion failed.', error);
 });
 
+
 let firstTenBooks = db.any('select * from books limit 10')
 firstTenBooks.then(books => {
-  assert(books.length, 10)
+  assert.deepEqual(books.length, 10)
 }).catch(error => {
   console.log('Whoops, my function doesnt behave as expected.', error);
 });
 
-/* -----------------------------------------
-            Exercise 3
-   -----------------------------------------
 
-   Implement the function `findAuthorsOrderedByLastName` which returns all the
-   authors from the the `authors` table, and the rows are ordered by the
-   `last_name`.
-
-
-   @function: `findAuthorsOrderedByLastName`
-   @input params: None
-   @output: [{id, first_name, last_name}]
-
-
-*/
-
-let findAuthorsOrderedByLastName; // = .... IMPLEMENT THIS FUNCTION
+let findAuthorsOrderedByLastName = ('select * from authors order by last_name')
 findAuthorsOrderedByLastName.then(authors => {
-  assert.deepEqual(authors.length, 19)
+  assert.deepEqual(authors.length, 21)
   assert.deepEqual(authors[0].last_name, 'Alcott')
-  assert.deepEqual(authors[18].last_name, 'Worsley')
+  assert.deepEqual(authors[18].last_name, 'Poe')
 }).catch(error => {
   console.log('Whoops, my function doesnt behave as expected.', error);
 });
-
-/* --------End of Exercise 3---------------- */
-
-
 
 /* -----------------------------------------
    Exercise 4
