@@ -4,17 +4,21 @@ const db = pgp(connectionString);
 
 const allBooks = db.any('select * from books')
   allbooks.then(books => {
-  assert.deepEqual(books.length, 15)
+    assert.deepEqual(books.length, 15)
+    assert.deepEqual(book[0].title, 'The Shining')
+    assert.deepEqual(book[1].title, 'Dune')
   }).catch(error => {
     console.log('Dang, my assertion failed.', error);
-});
+  });
 
 let firstTenBooks = db.any('select * from books limit 10')
   firstTenBooks.then(books => {
     assert.deepEqual(books.length, 10)
+    assert.deepEqual(books[3].subject_id, 2)
+    assert.deepEqual(books[4].author_id, 1809)
   }).catch(error => {
     console.log('Whoops, my function doesnt behave as expected.', error);
-});
+  });
 
 let findAuthorsOrderedByLastName = db.any('select * from authors order by last_name')
   findAuthorsOrderedByLastName.then(authors => {
@@ -23,46 +27,29 @@ let findAuthorsOrderedByLastName = db.any('select * from authors order by last_n
     assert.deepEqual(authors[18].last_name, 'Poe')
   }).catch(error => {
     console.log('Whoops, my function doesnt behave as expected.', error);
-});
+  });
 
 let findBookAuthors = db.any(
   'select first_name, last_name, title from authors join books on books.author_id = authors.id'
   )
   findBookAuthros.then(authors => {
     assert.deepEqual(books.length, 17)
-    assert.deepEqual(first_name[0], 'John')
-    assert.deepEqual(last_name[12], 'Christiansen')
-    }).catch(error => {
-      console.log('Something happened, the data is just...like...in space or something', error);
-});
+    assert.deepEqual(authors[0].first_name, 'John')
+    assert.deepEqual(authors[12].last_name, 'Christiansen')
+  }).catch(error => {
+    console.log('Something happened, the data is just...like...in space or something', error);
+  });
 
-/* -----------------------------------------
-   Exercise 5
-   -----------------------------------------
-
-   Implement the function `authorIdWithTwoBooks` which returns the
-   `author_id` of authors who have 2 books. (HINT: you have to use a SUBQUERY)
-
-   @function: `authorIdWithTwoBooks`
-   @input params: None
-   @output: [{first_name, last_name, title}]
-
-   In this exercise you will ALSO have to write the assertions. For inspiration,
-   look at the assertions in Exercises 1 - 3.
-
-   Expected Result:
-     [{author_id: 1809},
-      {author_id: 7805}]
-
-
-*/
-let authorIdWithTwoBooks; // IMPLEMENT THIS FUNCTION
-
-/* --------End of Exercise 5---------------- */
-
-
-
-
+let authorIdWithTwoBooks = db.any(
+  'select author_id from books group by author_id having count(author_id) = 2'
+  )
+  authroIdWithTwoBooks.then(books => {
+    assert.deepEqual(books.length, 2)
+    assert.deepEqual(books[0].author_id, 1809)
+    assert.deepEqual(books[1].author_id, 7805)
+  }).catch(error => {
+    console.log('The asserts did not work', error);
+  });
 
 /* -----------------------------------------
    Exercise 6
