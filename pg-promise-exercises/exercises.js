@@ -3,36 +3,18 @@ const connectionString = 'postgres://localhost:5432/pg-promise-exercises';
 const db = pgp(connectionString);
 
 const allBooks = db.any('select * from books')
-  .then(books => {
+  allbooks.then(books => {
   assert.deepEqual(books.length, 15)
 }).catch(error => {
-  console.log('Dang, my assertion failed.');
+  console.log('Dang, my assertion failed.', error);
 });
 
-/* -----------------------------------------
-           Exercise 2
-   -----------------------------------------
-
-   Implement the function `firstTenBooks` which returns just the names of the
-   books, and make the assertion pass.
-   @function: `firstTenBooks`
-   @input params: None
-   @output: [{id, title, author_id, subject_id}]
-
-
-*/
-
-let firstTenBooks; // = .... IMPLEMENT THIS FUNCTION
+let firstTenBooks = db.any('select * from books limit 10')
 firstTenBooks.then(books => {
   assert(books.length, 10)
 }).catch(error => {
   console.log('Whoops, my function doesnt behave as expected.', error);
 });
-
-/* --------End of Exercise 2---------------- */
-
-
-
 
 /* -----------------------------------------
             Exercise 3
