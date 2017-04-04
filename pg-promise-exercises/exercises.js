@@ -2,16 +2,16 @@ const pgp = require('pg-promise')();
 const connectionString = 'postgres://localhost:5432/pg-promise-exercises';
 const db = pgp(connectionString);
 
-const allBooks = db.any('select * from books')
+const allBooks = db.any('SELECT * FROM books')
   allbooks.then(books => {
     assert.deepEqual(books.length, 15)
     assert.deepEqual(book[0].title, 'The Shining')
     assert.deepEqual(book[1].title, 'Dune')
   }).catch(error => {
-    console.log('Dang, my assertion failed.', error);
+    console.log('Dang, my assertion failed.', error );
   });
 
-let firstTenBooks = db.any('select * from books limit 10')
+let firstTenBooks = db.any('SELECT * FROM books LIMIT 10')
   firstTenBooks.then(books => {
     assert.deepEqual(books.length, 10)
     assert.deepEqual(books[3].subject_id, 2)
@@ -20,7 +20,7 @@ let firstTenBooks = db.any('select * from books limit 10')
     console.log('Whoops, my function doesnt behave as expected.', error);
   });
 
-let findAuthorsOrderedByLastName = db.any('select * from authors order by last_name')
+let findAuthorsOrderedByLastName = db.any('SELECT * FROM authors ORDER BY last_name')
   findAuthorsOrderedByLastName.then(authors => {
     assert.deepEqual(authors.length, 21)
     assert.deepEqual(authors[0].last_name, 'Alcott')
@@ -30,7 +30,7 @@ let findAuthorsOrderedByLastName = db.any('select * from authors order by last_n
   });
 
 let findBookAuthors = db.any(
-  'select first_name, last_name, title from authors join books on books.author_id = authors.id'
+  'SELECT first_name, last_name, title FROM authors JOIN books ON books.author_id = authors.id'
   )
   findBookAuthros.then(authors => {
     assert.deepEqual(books.length, 17)
@@ -41,7 +41,7 @@ let findBookAuthors = db.any(
   });
 
 let authorIdWithTwoBooks = db.any(
-  'select author_id from books group by author_id having count(author_id) >= 2'
+  'SELECT author_id FROM books GROUP BY author_id HAVING COUNT(author_id) >= 2'
   )
   authroIdWithTwoBooks.then(books => {
     assert.deepEqual(books.length, 2)
@@ -51,9 +51,9 @@ let authorIdWithTwoBooks = db.any(
     console.log('The asserts did not work', error);
   });
 
-let bookTitlesWithMultipleEditions = db.any (
-  'select title from editions join books on editions.book_id = books.id group by title having count(title) >= 2'
-)
+let bookTitlesWithMultipleEditions = db.any(
+  'SELECT title FROM editions JOIN books ON editions.book_id = books.id GROUP BY title HAVING COUNT(title) >= 2'
+  )
   bookTitlesWithMultipleEditions.then(editions => {
     assert.deepEqual(editions.length, 5)
     assert.deepEqual(editions[0].title, 'The Shining')
@@ -62,37 +62,19 @@ let bookTitlesWithMultipleEditions = db.any (
     console.log('The asserts did not work', error);
   });
 
-/* --------End of Exercise 6---------------- */
-
-
-
-
-/* -----------------------------------------
-   Exercise 7
-   -----------------------------------------
-
-   Implement the function `findStockedBooks` which returns the `title` & the
-   author's `first_name` & `last_name` of all books which are stocked as
-   represented in the `daily_inventory` table.
-
-   @function: `findStockedBooks`
-   @input params: None
-   @output: [{first_name, last_name, title}]
-
-   In this exercise you will ALSO have to write the assertions. For inspiration,
-   look at the assertions in Exercises 1 - 3.
-
-   Expected Result:
-   [ {first_name: 'Frank',  title: 'Dune', last_name: 'Herbert'},
-     {title: 'The Cat in the Hat', first_name: 'Theodor Seuss', last_name: 'Geisel'}]
-
-*/
-let findStockedBooks; // IMPLEMENT THIS FUNCTION
-
-/* --------End of Exercise 7---------------- */
-
-
-
+let findStockedBooks = db.any(
+  "SELECT distinct first_name, last_name, title \
+  FROM daily_inventory \
+  JOIN editions ON daily_inventory.isbn = editions.isbn \
+  JOIN books ON editions.book_id = books.id \
+  JOIN authors ON books.author_id = authors.id \
+  WHERE daily_inventory.is_stocked = 't'"
+  )
+  findStockedBooks.then(daily_inventory => {
+    assert.deepEqual(daily_inventory.length, 2)
+    assert.deepEqual(daily_invetory[0].title, 'Dune')
+    assert.deepEqual(daily_inventory[1].last_name, 'Geisel')
+  })
 
 console.log('Reached the end!');
 pg.end();
