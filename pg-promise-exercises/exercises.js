@@ -2,71 +2,39 @@ const pgp = require('pg-promise')();
 const connectionString = 'postgres://localhost:5432/pg-promise-exercises';
 const db = pgp(connectionString);
 
-
 const allBooks = db.any('select * from books')
   allbooks.then(books => {
   assert.deepEqual(books.length, 15)
-}).catch(error => {
-  console.log('Dang, my assertion failed.', error);
+  }).catch(error => {
+    console.log('Dang, my assertion failed.', error);
 });
-
 
 let firstTenBooks = db.any('select * from books limit 10')
-firstTenBooks.then(books => {
-  assert.deepEqual(books.length, 10)
-}).catch(error => {
-  console.log('Whoops, my function doesnt behave as expected.', error);
+  firstTenBooks.then(books => {
+    assert.deepEqual(books.length, 10)
+  }).catch(error => {
+    console.log('Whoops, my function doesnt behave as expected.', error);
 });
 
-
-let findAuthorsOrderedByLastName = ('select * from authors order by last_name')
-findAuthorsOrderedByLastName.then(authors => {
-  assert.deepEqual(authors.length, 21)
-  assert.deepEqual(authors[0].last_name, 'Alcott')
-  assert.deepEqual(authors[18].last_name, 'Poe')
-}).catch(error => {
-  console.log('Whoops, my function doesnt behave as expected.', error);
+let findAuthorsOrderedByLastName = db.any('select * from authors order by last_name')
+  findAuthorsOrderedByLastName.then(authors => {
+    assert.deepEqual(authors.length, 21)
+    assert.deepEqual(authors[0].last_name, 'Alcott')
+    assert.deepEqual(authors[18].last_name, 'Poe')
+  }).catch(error => {
+    console.log('Whoops, my function doesnt behave as expected.', error);
 });
 
-/* -----------------------------------------
-   Exercise 4
-   -----------------------------------------
-
-   Implement the function `findBookAuthors` which returns the `first_name` and
-   `last_name` from the `authors` table, and the `title` of the
-   books(from the `books` table) that the authors have written.
-
-   @function: `findBookAuthors`
-   @input params: None
-   @output: [{first_name, last_name, title}]
-
-   In this exercise you will ALSO have to write the assertions. For inspiration,
-   look at the assertions in Exercises 1 - 3.
-
-   Expected Result:
-   [{first_name: 'John', last_name: 'Worsley', title: 'Practical PostgreSQL'}
-   {first_name: 'Paulette', last_name: 'Bourgeois', title: 'Franklin in the Dark'}
-   {first_name: 'Margery Williams', last_name: 'Bianco', title: 'The Velveteen Rabbit'}
-   {first_name: 'Louisa May', last_name: 'Alcott', title: 'Little Women'}
-   {first_name: 'Stephen', last_name: 'King', title: 'The Shining'}
-   {first_name: 'Frank', last_name: 'Herbert', title: 'Dune'}
-   {first_name: 'Burne', last_name: 'Hogarth', title: 'Dynamic Anatomy'}
-   {first_name: 'Margaret Wise', last_name: 'Brown', title: 'Goodnight moreon'}
-   {first_name: 'Edgar Allen', last_name: 'Poe', title: 'The Tell-Tale Heart'}
-   {first_name: 'Mark', last_name: 'Lutz', title: 'Learning Python'}
-   {first_name: 'Mark', last_name: 'Lutz', title: 'Programming Python'}
-   {first_name: 'Tom', last_name: 'Christiansen', title: 'Perl Cookbook'}
-   {first_name: 'Arthur C.', last_name: 'Clarke', title: '2001: A Space Odyssey'}
-   {first_name: 'Theodor Seuss', last_name: 'Geisel', title: 'Bartholomew and the Oobleck'}
-   {first_name: 'Theodor Seuss', last_name: 'Geisel', title: 'The Cat in the Hat'}]
-*/
-let findBookAuthors; // IMPLEMENT THIS FUNCTION
-
-/* --------End of Exercise 4---------------- */
-
-
-
-
+let findBookAuthors = db.any(
+  'select first_name, last_name, title from authors join books on books.author_id = authors.id'
+  )
+  findBookAuthros.then(authors => {
+    assert.deepEqual(books.length, 17)
+    assert.deepEqual(first_name[0], 'John')
+    assert.deepEqual(last_name[12], 'Christiansen')
+    }).catch(error => {
+      console.log('Something happened, the data is just...like...in space or something', error);
+});
 
 /* -----------------------------------------
    Exercise 5
