@@ -16,9 +16,9 @@ Base repository for the [promises-applied](https://github.com/GuildCrafts/web-de
 
 Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-promise-exercises`. Look at the `README.md` file in each folder for instructions.
 
-- [ ] Exercises 1-13 in the [promise-it-wont-hurt-solutions][promise-it-wont-hurt-solutions] are complete and written to the appropriate file:
+- [x] Exercises 1-13 in the [promise-it-wont-hurt-solutions][promise-it-wont-hurt-solutions] are complete and written to the appropriate file:
 
-- [ ] `src/01-warmup.js`
+- [x] `src/01-warmup.js`
 
 - [ ] `src/02-fullfill-a-promise.js`
 
