@@ -3,7 +3,7 @@ require('es6-promise');
 
 let promise = new Promise((fulfill, reject) => {
 	reject('rejected')
-})
+});
 
 promise.catch(error => {
 	console.log("It has been ", error);
