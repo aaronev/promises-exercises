@@ -6,7 +6,7 @@ attachTitle = (str) => {
 }
 
 let promises = new Promise((resolve, reject) => {
-	resolve('MANHATTAN')
+  resolve('MANHATTAN')
 })
 .then(attachTitle)
 .then(console.log)
