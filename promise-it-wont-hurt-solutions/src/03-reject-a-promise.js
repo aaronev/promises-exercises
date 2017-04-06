@@ -1,10 +1,10 @@
 require('es6-promise');
 'use strict';
 
-let promise = new Promise((fulfill, reject) => {
+let promise = new Promise((resolve, reject) => {
 	reject('rejected')
 });
 
-promise.catch(error => {
-	console.log("It has been ", error);
+promise.catch(onReject => {
+	console.log("It has been ", onReject);
 });
