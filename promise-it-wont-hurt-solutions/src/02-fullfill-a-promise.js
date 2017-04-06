@@ -1,9 +1,9 @@
 require('es6-promise');
 'use strict';
 
-let promise = new Promise((fulfill, reject) => {
+let promise = new Promise((resolved, reject) => {
 	setTimeout(function(){
-		fulfill('FULFILLED!')
+		resolved('FULFILLED!')
 	}, 300);
 });
 
