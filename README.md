@@ -20,29 +20,29 @@ Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-prom
 
 - [x] `src/01-warmup.js`
 
-- [ ] `src/02-fullfill-a-promise.js`
+- [x] `src/02-fullfill-a-promise.js`
 
-- [ ] `src/03-reject-a-promise.js`
+- [x] `src/03-reject-a-promise.js`
 
-- [ ] `src/04-to-reject-or-not-to-reject.js`
+- [x] `src/04-to-reject-or-not-to-reject.js`
 
-- [ ] `src/05-always-asynchronous.js`
+- [x] `src/05-always-asynchronous.js`
 
-- [ ] `src/06-shortcuts.js`
+- [x] `src/06-shortcuts.js`
 
-- [ ] `src/07-promise-after-promise.js`
+- [x] `src/07-promise-after-promise.js`
 
-- [ ] `src/08-values-and-promises.js`	
+- [x] `src/08-values-and-promises.js`	
 
-- [ ] `src/09-throw-an-error.js`
+- [x] `src/09-throw-an-error.js`
 
-- [ ] `src/10-an-important-file.js`
+- [x] `src/10-an-important-file.js`
 
-- [ ] `src/11-multiple-promises.js`
+- [x] `src/11-multiple-promises.js`
 
-- [ ] `src/12-fetch-json.js`
+- [x] `src/12-fetch-json.js`
 
-- [ ] `src/13-do-some-work.js`
+- [x] `src/13-do-some-work.js`
 ​
 ### Day 5
 
@@ -66,7 +66,7 @@ Complete the exercises in the folder `promise-it-wont-hurt-solutions` & `pg-prom
 
 ### Stretch
 
-- [ ] Read Google's [Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to Promises
+- [x] Read Google's [Introduction](https://developers.google.com/web/fundamentals/getting-started/primers/promises) to Promises
 ​
 ## Quality Rubric
 
