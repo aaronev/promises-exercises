@@ -21,5 +21,5 @@ Promise.resolve('This will not show')
 .then(resolve => {iterate(7)})
 .then(resolve => {iterate(8)})
 .catch(error => {
-	console.log(error.message)
+	console.log(error)
 })

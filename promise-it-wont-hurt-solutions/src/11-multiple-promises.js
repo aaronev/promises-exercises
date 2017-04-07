@@ -1,20 +1,27 @@
-require('es6-promise');
-'use strict';
+all = (promise1, promise2) => {
+  return new Promise((resolve, reject) => {
+    var counter = 0
+    var promise3 = []
 
-let getPromise1 = Promise.resolve('This is one')
-let getPromise2 = Promise.resolve('This is two')
+    promise1.then(value => {
+      promise3[0] = value
+      counter++
 
-let all = (promise1, promise2) => {
-  let counter = 0
-  let promise3
-  promise1.then(counter++)
-  promise2.then(counter++)
-  if (counter === 2) {
-    promise3 = new Promise(resolve => {
-      resolve([promise1, promise2]) 
+      if (counter === 2) {
+        resolve(promise3)
+      }
     })
-  }
-  return promise3 
+
+    promise2.then(value => {
+      promise3[1] = value
+      counter++
+
+      if (counter === 2) {
+        resolve(promise3)
+      }
+    })
+  })
 }
 
-console.log(all(getPromise1, getPromise2))
+all(getPromise1(), getPromise2())
+  .then(console.log)
