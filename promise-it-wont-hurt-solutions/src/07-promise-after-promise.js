@@ -1,19 +1,10 @@
 require('es6-promise');
 'use strict';
 
-let first = () => {
-   	let promise = new Promise(function(resolve, reject){
-   		resolve('secret value')
-	})
-   	return promise
-}
-let second = (first) => {
-	return first
-}
-let print = (second) => {
-	
-}
+const firstPromise = first()
 
-first()
-.then(second)
-.then(print)
+const secondPromise = firstPromise.then((value) => {
+  return second(value)
+})
+
+secondPromise.then(console.log)
