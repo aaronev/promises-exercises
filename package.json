@@ -23,7 +23,9 @@
     "express": "^4.15.2",
     "module": "^1.2.5",
     "module1": "0.0.0",
-    "pg-promise": "^5.6.3"
+    "pg-promise": "^5.6.3",
+    "q-io": "^1.13.2",
+    "sails-hook-dev": "github:balderdashy/sails-hook-dev"
   },
   "devDependencies": {}
 }
