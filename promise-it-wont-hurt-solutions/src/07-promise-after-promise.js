@@ -3,7 +3,7 @@ require('es6-promise');
 
 const firstPromise = first()
 
-const secondPromise = firstPromise.then((value) => {
+const secondPromise = firstPromise.then(value => {
   return second(value)
 })
 

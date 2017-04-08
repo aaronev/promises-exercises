@@ -4,6 +4,6 @@ require('es6-promise');
 const http = require('q-io/http');
 
 http.read('http://localhost:1337')
-  .then(value => {
-    console.log(JSON.parse(value))
+.then(value => {
+  console.log(JSON.parse(value))
 })

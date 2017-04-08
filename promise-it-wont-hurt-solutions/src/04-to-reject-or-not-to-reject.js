@@ -7,6 +7,6 @@ let promise = new Promise((resolve, reject) => {
 })
 .then(resolve => {
   console.log(resolve)
-}, onReject => {
+    }, onReject => {
   console.log(onReject.message)
 })
