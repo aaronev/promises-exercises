@@ -4,9 +4,11 @@ require('es6-promise');
 let promise = new Promise((resolve, reject) => {
   resolve('fulfilled')
   reject(new Error('Not Fulfilled'))
-}).then(resolve => {
+})
+.then(resolve => {
   console.log(resolve)
-}).catch(reject => {
+})
+.catch(reject => {
   console.log(reject)
 })
 
@@ -14,7 +16,8 @@ let youAreAwesome = (
   Promise.resolve('Yeah you are dude!'), 
   Promise.reject(new Error('Syyyyyykkkkkkeeeeee!')))
 .then(resolve => {
-    console.log(resolve)
-  }).catch(reject => {
-    console.log(reject)
-  })
+  console.log(resolve)
+})
+.catch(reject => {
+  console.log(reject)
+})
